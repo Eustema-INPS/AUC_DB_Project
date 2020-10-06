@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[tb_auain_Soggetti_Gestione_Separata] (
+    [auain_cf]                   VARCHAR (16)  NULL,
+    [auain_nome]                 VARCHAR (150) NULL,
+    [auain_cognome]              VARCHAR (255) NULL,
+    [auain_sesso]                VARCHAR (1)   NULL,
+    [auain_data_nasc]            DATETIME      NULL,
+    [auain_com_nasc]             VARCHAR (45)  NULL,
+    [auain_prov_nasc]            VARCHAR (2)   NULL,
+    [auain_toponimo]             VARCHAR (50)  NULL,
+    [auain_indirizzo]            VARCHAR (255) NULL,
+    [auain_civico]               VARCHAR (50)  NULL,
+    [auain_cap]                  VARCHAR (5)   NULL,
+    [auain_comune]               VARCHAR (45)  NULL,
+    [auain_sigla_prov]           VARCHAR (2)   NULL,
+    [auain_frazione]             VARCHAR (100) NULL,
+    [auain_localita]             VARCHAR (50)  NULL,
+    [auain_telefono]             VARCHAR (20)  NULL,
+    [auain_pec]                  VARCHAR (160) NULL,
+    [auain_fax]                  VARCHAR (20)  NULL,
+    [auain_email]                VARCHAR (160) NULL,
+    [auain_presente]             CHAR (1)      NULL,
+    [auain_aurea_codice_pk]      INT           NULL,
+    [auain_IND_QUALITA_INDIR]    INT           NULL,
+    [auain_IND_QUALITA_INDIR_RL] INT           NULL
+);
+

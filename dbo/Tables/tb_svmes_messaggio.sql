@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[tb_svmes_messaggio] (
+    [svmes_codice_pk]                 BIGINT        IDENTITY (1, 1) NOT NULL,
+    [svmes_id_Key]                    INT           NULL,
+    [svmes_messageID]                 VARCHAR (250) NULL,
+    [svmes_msgID]                     VARCHAR (250) NULL,
+    [svmes_from_PEC]                  VARCHAR (250) NULL,
+    [svmes_from_msg]                  VARCHAR (250) NULL,
+    [svmes_posted_data]               DATETIME      NULL,
+    [svmes_delivered_data]            DATETIME      NULL,
+    [svmes_subject_PEC]               VARCHAR (500) NULL,
+    [svmes_subject]                   VARCHAR (500) NULL,
+    [svmes_body_PEC]                  VARCHAR (MAX) NULL,
+    [svmes_body]                      VARCHAR (MAX) NULL,
+    [svmes_IdPratica]                 VARCHAR (20)  NULL,
+    [svmes_tipo]                      VARCHAR (50)  NULL,
+    [svmes_stato]                     VARCHAR (5)   NULL,
+    [svmes_dettaglio_stato]           VARCHAR (500) NULL,
+    [svmes_segnatura_mittente]        VARCHAR (50)  NULL,
+    [svmes_segnatura_INPS_E]          VARCHAR (50)  NULL,
+    [svmes_segnatura_INPS_U]          VARCHAR (50)  NULL,
+    [svmes_messaggio]                 IMAGE         NULL,
+    [svmes_data_ultimo_aggiornamento] DATETIME      NULL,
+    [svmes_area]                      VARCHAR (10)  NULL,
+    [svmes_generica]                  VARCHAR (2)   NULL
+);
+

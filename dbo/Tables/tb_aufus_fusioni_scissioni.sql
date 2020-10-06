@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[tb_aufus_fusioni_scissioni] (
+    [aufus_codice_pk]            BIGINT        IDENTITY (1, 1) NOT NULL,
+    [aufus_ausca_codice_pk]      INT           NULL,
+    [aufus_codice_pk_db2]        BIGINT        NULL,
+    [aufus_prog_fusione]         INT           NULL,
+    [aufus_c_tipo]               VARCHAR (5)   NULL,
+    [aufus_tipo]                 VARCHAR (50)  NULL,
+    [aufus_c_approvazione]       VARCHAR (5)   NULL,
+    [aufus_approvazione]         VARCHAR (50)  NULL,
+    [aufus_c_evento]             VARCHAR (5)   NULL,
+    [aufus_evento]               VARCHAR (255) NULL,
+    [aufus_data_iscrizione]      DATETIME      NULL,
+    [aufus_data_mod_evento]      DATETIME      NULL,
+    [aufus_data_delibera]        DATETIME      NULL,
+    [aufus_data_atto_esecuzione] DATETIME      NULL,
+    [aufus_data_atto]            DATETIME      NULL,
+    [aufus_data_modifica]        DATETIME      NULL,
+    [aufus_descr_utente]         VARCHAR (50)  NULL,
+    [aufus_rec_del]              VARCHAR (1)   NULL,
+    [aufus_data_del]             DATETIME      NULL,
+    CONSTRAINT [PK_tb_aufus] PRIMARY KEY CLUSTERED ([aufus_codice_pk] ASC) WITH (FILLFACTOR = 90),
+    CONSTRAINT [FK_aufus_ausca] FOREIGN KEY ([aufus_ausca_codice_pk]) REFERENCES [dbo].[tb_ausca_sog_contr_az] ([ausca_codice_pk]),
+    CONSTRAINT [UQ_aufus_aufus] UNIQUE NONCLUSTERED ([aufus_codice_pk] ASC) WITH (FILLFACTOR = 90)
+);
+

@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[TB_AUT13_OSIRIDE_TR13] (
+    [AUT13_R13_TIPO]            CHAR (2)    NULL,
+    [AUT13_R13_PROV_CCIAA]      CHAR (2)    NULL,
+    [AUT13_R13_NUM_IREA]        CHAR (9)    NULL,
+    [AUT13_R13_PROGRESSIVO_UL]  CHAR (4)    NULL,
+    [AUT13_R13_TIPO_RUOLO]      CHAR (2)    NULL,
+    [AUT13_R13_FORMA_RUOLO]     CHAR (1)    NULL,
+    [AUT13_R13_N_RUOLO]         CHAR (7)    NULL,
+    [AUT13_R13_PROVINCIA_RUOLO] CHAR (2)    NULL,
+    [AUT13_R13_COD_ENTE_ALBO]   CHAR (2)    NULL,
+    [AUT13_R13_DATA_DOM_ISCR]   CHAR (8)    NULL,
+    [AUT13_R13_DATA_DOM_CESS]   CHAR (8)    NULL,
+    [AUT13_R13_DATA_DEL_CESS]   CHAR (8)    NULL,
+    [AUT13_R13_DATA_EFF_CESS]   CHAR (8)    NULL,
+    [AUT13_R13_COD_CAU_CESS]    CHAR (2)    NULL,
+    [AUT13_R13_FILLER]          CHAR (1356) NULL,
+    [AUT13_R13_filler02]        CHAR (180)  NULL,
+    [AUT13_R13_codice_fiscale]  CHAR (16)   NULL,
+    [AUT13_R13_auulo_codice_pk] BIGINT      NULL
+);
+

@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Anagrafica] (
+    [ID_Gestionale]        INT           NOT NULL,
+    [CodiceFiscale]        VARCHAR (16)  NOT NULL,
+    [ID_GestionaleAUC]     INT           NULL,
+    [PartitaIVA]           VARCHAR (11)  NULL,
+    [Toponimo]             VARCHAR (50)  NULL,
+    [Numerocivico]         VARCHAR (50)  NULL,
+    [Comune]               VARCHAR (45)  NULL,
+    [Provincia]            VARCHAR (2)   NULL,
+    [Cap]                  VARCHAR (5)   NULL,
+    [DataIndirizzo]        DATETIME      NULL,
+    [Frazione]             VARCHAR (100) NULL,
+    [Localita]             VARCHAR (50)  NULL,
+    [Telefono]             VARCHAR (20)  NULL,
+    [PEC]                  VARCHAR (160) NULL,
+    [Email]                VARCHAR (160) NULL,
+    [CodNaturaGiuridica]   VARCHAR (10)  NULL,
+    [CodiceAteco]          VARCHAR (7)   NULL,
+    [DataInizioAttivita]   DATETIME      NULL,
+    [StatoAttivita]        VARCHAR (20)  NULL,
+    [DataVarStatoAtt]      DATETIME      NULL,
+    [DataAggiornamento]    DATETIME      NULL,
+    [DescrNaturaGiuridica] VARCHAR (255) NULL,
+    [DescrAteco]           VARCHAR (255) NULL,
+    [FonteAcq]             VARCHAR (25)  NULL
+);
+

@@ -1,0 +1,22 @@
+﻿CREATE TABLE [dbo].[BDLC_LOCALITA_CL] (
+    [BDLC_ID_VA]            BIGINT       NOT NULL,
+    [BDLC_BDLC_APP_VR]      BIGINT       NULL,
+    [BDLC_BDLL_APP_VR]      BIGINT       NULL,
+    [BDLC_CAP_VB]           VARCHAR (5)  NULL,
+    [BDLC_CITTADIN_VB]      VARCHAR (30) NULL,
+    [BDLC_CODISTAT_VB]      VARCHAR (7)  NULL,
+    [BDLC_CODSTAT_VB]       INT          NULL,
+    [BDLC_COP_VB]           VARCHAR (4)  NULL,
+    [BDLC_DESCRIZ_VB]       VARCHAR (60) NULL,
+    [BDLC_DTFIN_VB]         DATE         NULL,
+    [BDLC_DTINI_VB]         DATE         NULL,
+    [BDLC_PATRONO_VB]       VARCHAR (4)  NULL,
+    [BDLC_PREFINT_VB]       VARCHAR (4)  NULL,
+    [BDLC_SIGLA_VB]         VARCHAR (5)  NULL,
+    [BDLC_MODREC_VB]        DATE         NULL,
+    [BDLC_FLGATA_VB]        VARCHAR (1)  NULL,
+    [BDLC_CODISO_VB]        VARCHAR (3)  NULL,
+    [BDLC_SCLIN_COD_LINGUA] VARCHAR (3)  NULL,
+    CONSTRAINT [PK_BDLC_LOCALITA_CL] PRIMARY KEY CLUSTERED ([BDLC_ID_VA] ASC)
+);
+

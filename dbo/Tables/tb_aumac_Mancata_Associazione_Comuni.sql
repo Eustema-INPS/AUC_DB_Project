@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[tb_aumac_Mancata_Associazione_Comuni] (
+    [aumac_codice_pk]                INT          IDENTITY (1, 1) NOT NULL,
+    [aumac_Comune_AUC]               VARCHAR (60) NULL,
+    [aumac_ComuneI]                  VARCHAR (60) NULL,
+    [aumac_ComuneT]                  VARCHAR (60) NULL,
+    [aumac_Belfiore]                 VARCHAR (4)  NULL,
+    [aumac_PROV]                     VARCHAR (3)  NULL,
+    [aumac_regione]                  VARCHAR (2)  NULL,
+    [aumac_regione_inps]             VARCHAR (2)  NULL,
+    [aumac_ISTAT_Codice_Regione]     VARCHAR (2)  NULL,
+    [aumac_ISTAT_Codice_Comune]      VARCHAR (6)  NULL,
+    [aumac_flag_associazione]        INT          CONSTRAINT [DF_[tb_aumac_Mancata_Associazione_Comuni_aumac_flag_associazione] DEFAULT ((0)) NULL,
+    [aumac_Comune_AUC_New]           VARCHAR (60) NULL,
+    [aumac_ComuneI_New]              VARCHAR (60) NULL,
+    [aumac_ComuneT_New]              VARCHAR (60) NULL,
+    [aumac_Belfiore_New]             VARCHAR (4)  NULL,
+    [aumac_PROV_New]                 VARCHAR (3)  NULL,
+    [aumac_regione_New]              VARCHAR (2)  NULL,
+    [aumac_regione_inps_New]         VARCHAR (2)  NULL,
+    [aumac_ISTAT_Codice_Regione_New] VARCHAR (2)  NULL,
+    [aumac_ISTAT_Codice_Comune_New]  VARCHAR (6)  NULL,
+    [aumac_Flag_Agenda_Sedi]         VARCHAR (1)  CONSTRAINT [DF_[tb_aumac_Mancata_Associazione_Comuni_aumac_Flag_Agenda_Sedi] DEFAULT ('N') NULL,
+    [aumac_data_modifica]            DATETIME     NULL,
+    [aumac_descr_utente]             VARCHAR (50) NULL,
+    CONSTRAINT [PK_tb_aumac_Mancata_Associazione_Comuni] PRIMARY KEY CLUSTERED ([aumac_codice_pk] ASC)
+);
+

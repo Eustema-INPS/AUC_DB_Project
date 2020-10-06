@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[TI_BDCE_CESSATIO_CL] (
+    [BDCE_BDSO_OLD_VR]      BIGINT       NULL,
+    [BDCE_BDSO_NEW_VR]      BIGINT       NULL,
+    [BDCE_TIPO_VB]          VARCHAR (1)  NULL,
+    [BDCE_BDNO_EDI_VR]      BIGINT       NULL,
+    [BDCE_ID_VA]            BIGINT       NULL,
+    [BDCE_MODREC_VB]        DATE         NULL,
+    [BDCE_AUC_AUSCA_OLD_PK] INT          NULL,
+    [BDCE_AUC_AUSCA_NEW_PK] INT          NULL,
+    [BDCE_CODICE_PK]        BIGINT       IDENTITY (1, 1) NOT NULL,
+    [BDCE_DATA_MODIFICA]    DATETIME     NULL,
+    [BDCE_DESCR_UTENTE]     VARCHAR (50) NULL
+);
+

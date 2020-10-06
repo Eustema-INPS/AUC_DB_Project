@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Import_DM_TANAPER] (
+    [IdRiga]                  INT           IDENTITY (1, 1) NOT NULL,
+    [St_codice_fiscale]       VARCHAR (16)  NULL,
+    [St_cognome]              VARCHAR (MAX) NULL,
+    [St_nome]                 VARCHAR (MAX) NULL,
+    [St_denominazione]        VARCHAR (MAX) NULL,
+    [St_note]                 VARCHAR (MAX) NULL,
+    [St_FisicaGiuridica]      VARCHAR (MAX) NULL,
+    [St_sesso]                VARCHAR (MAX) NULL,
+    [St_sede_legale_italia]   VARCHAR (MAX) NULL,
+    [St_CodiceFormaGiuridica] VARCHAR (MAX) NULL,
+    [St_data_nascita]         VARCHAR (MAX) NULL,
+    [St_comune_nascita]       VARCHAR (MAX) NULL,
+    [St_prov_nascita]         VARCHAR (MAX) NULL,
+    [St_codice_toponimo]      VARCHAR (MAX) NULL,
+    [St_indirizzo]            VARCHAR (MAX) NULL,
+    [St_civico]               VARCHAR (MAX) NULL,
+    [St_cap]                  VARCHAR (MAX) NULL,
+    [St_descr_comune]         VARCHAR (MAX) NULL,
+    [St_sigla_provincia]      VARCHAR (MAX) NULL,
+    [St_telefono1]            VARCHAR (MAX) NULL,
+    [St_telefono2]            VARCHAR (MAX) NULL,
+    [St_fax]                  VARCHAR (MAX) NULL,
+    [St_Flag_OK]              INT           NULL,
+    [St_data_modifica]        DATETIME      NULL,
+    [St_descr_utente]         VARCHAR (MAX) NULL
+);
+

@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[ISTAT_CODICI_COMUNI] (
+    [Codice Regione]                                                   NVARCHAR (255) NULL,
+    [Codice dell'Unità territoriale sovracomunale _(valida a fini sta] NVARCHAR (255) NULL,
+    [Codice Provincia (Storico)(1)]                                    NVARCHAR (255) NULL,
+    [Progressivo del Comune (2)]                                       NVARCHAR (255) NULL,
+    [Codice Comune formato alfanumerico]                               NVARCHAR (255) NULL,
+    [Denominazione (Italiana e straniera)]                             NVARCHAR (255) NULL,
+    [Denominazione in italiano]                                        NVARCHAR (255) NULL,
+    [Denominazione altra lingua]                                       NVARCHAR (255) NULL,
+    [Codice Ripartizione Geografica]                                   FLOAT (53)     NULL,
+    [Ripartizione geografica]                                          NVARCHAR (255) NULL,
+    [Denominazione regione]                                            NVARCHAR (255) NULL,
+    [Denominazione dell'Unità territoriale sovracomunale _(valida a f] NVARCHAR (255) NULL,
+    [Flag Comune capoluogo di provincia/città metropolitana/libero co] FLOAT (53)     NULL,
+    [Sigla automobilistica]                                            NVARCHAR (255) NULL,
+    [Codice Comune formato numerico]                                   FLOAT (53)     NULL,
+    [Codice Comune numerico con 110 province (dal 2010 al 2016)]       FLOAT (53)     NULL,
+    [Codice Comune numerico con 107 province (dal 2006 al 2009)]       FLOAT (53)     NULL,
+    [Codice Comune numerico con 103 province (dal 1995 al 2005)]       FLOAT (53)     NULL,
+    [Codice Catastale del comune]                                      NVARCHAR (255) NULL,
+    [Popolazione legale 2011 (09/10/2011)]                             FLOAT (53)     NULL,
+    [NUTS1]                                                            NVARCHAR (255) NULL,
+    [NUTS2(3) ]                                                        NVARCHAR (255) NULL,
+    [NUTS3]                                                            NVARCHAR (255) NULL
+);
+

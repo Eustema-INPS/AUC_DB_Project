@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[TB_AUOSS_OPERAZIONE_SOCIETARIA_STORICO] (
+    [auoss_codice_pk]                    BIGINT        IDENTITY (1, 1) NOT NULL,
+    [auoss_auoso_codice_pk]              BIGINT        NULL,
+    [auoss_tipo_operazione]              CHAR (1)      NULL,
+    [auoss_codice_fiscale_riferimento]   VARCHAR (16)  NULL,
+    [auoss_posizione_riferimento]        VARCHAR (50)  NULL,
+    [auoss_descr_operazione]             VARCHAR (200) NULL,
+    [auoss_data_operazione]              DATE          NULL,
+    [auoss_stato_operazione]             VARCHAR (20)  NULL,
+    [auoss_CSC_posizione_riferimento]    VARCHAR (5)   NULL,
+    [auoss_CA_posizione_riferimento]     VARCHAR (60)  NULL,
+    [auoss_codice_fiscale_delegato]      VARCHAR (16)  NULL,
+    [auoss_codice_operatore]             VARCHAR (8)   NULL,
+    [auoss_azione_effettuata]            VARCHAR (1)   NULL,
+    [auoss_data_azione]                  DATE          NULL,
+    [auoss_aupoc_codice_pk]              INT           NULL,
+    [auoss_data_storicizzazione]         DATETIME      NULL,
+    [auoss_descr_utente_storicizzazione] VARCHAR (50)  NULL,
+    [auoss_data_modifica]                DATETIME      NULL,
+    [auoss_descr_utente]                 VARCHAR (50)  NULL,
+    [auoss_note]                         VARCHAR (200) NULL,
+    CONSTRAINT [PK_tb_auoss] PRIMARY KEY CLUSTERED ([auoss_codice_pk] ASC),
+    CONSTRAINT [UQ_auoss_auoss] UNIQUE NONCLUSTERED ([auoss_codice_pk] ASC)
+);
+

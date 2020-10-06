@@ -1,0 +1,19 @@
+﻿CREATE TABLE [dbo].[RecuperoTATECOS] (
+    [TASTAPRO] VARCHAR (2)   NULL,
+    [TASTAAZI] VARCHAR (6)   NULL,
+    [TASTACOD] VARCHAR (2)   NULL,
+    [TADECINI] VARCHAR (30)  NULL,
+    [TATERVAL] VARCHAR (30)  NULL,
+    [TACSC]    VARCHAR (5)   NULL,
+    [TAISTAT]  VARCHAR (100) NULL,
+    [TATECO02] VARCHAR (15)  NULL,
+    [TATECO07] VARCHAR (15)  NULL,
+    [TATECORI] INT           NOT NULL,
+    [TATASIA]  INT           NOT NULL,
+    [TATECOXX] INT           NOT NULL,
+    [TADATOPR] INT           NOT NULL,
+    [TAFLAG01] INT           NOT NULL,
+    [TAFLAG02] INT           NOT NULL,
+    [TAFLAG03] INT           NOT NULL
+);
+

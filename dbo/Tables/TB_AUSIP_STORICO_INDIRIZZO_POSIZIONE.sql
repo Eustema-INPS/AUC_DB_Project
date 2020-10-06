@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[TB_AUSIP_STORICO_INDIRIZZO_POSIZIONE] (
+    [AUSIP_CODICE_PK]                  BIGINT        IDENTITY (1, 1) NOT NULL,
+    [AUSIP_aupoc_codice_pk]            BIGINT        NULL,
+    [AUSIP_POSIZIONE]                  VARCHAR (50)  NULL,
+    [AUSIP_TOPONIMO]                   VARCHAR (50)  NULL,
+    [AUSIP_INDIRIZZO]                  VARCHAR (255) NULL,
+    [AUSIP_CIVICO]                     VARCHAR (50)  NULL,
+    [AUSIP_CAP]                        VARCHAR (5)   NULL,
+    [AUSIP_COMUNE]                     VARCHAR (50)  NULL,
+    [AUSIP_PROVINCIA]                  VARCHAR (2)   NULL,
+    [AUSIP_CODICE_COMUNE_BELFIORE]     VARCHAR (4)   NULL,
+    [AUSIP_TOPONIMO_OLD]               VARCHAR (50)  NULL,
+    [AUSIP_INDIRIZZO_OLD]              VARCHAR (255) NULL,
+    [AUSIP_CIVICO_OLD]                 VARCHAR (50)  NULL,
+    [AUSIP_CAP_OLD]                    VARCHAR (5)   NULL,
+    [AUSIP_COMUNE_OLD]                 VARCHAR (50)  NULL,
+    [AUSIP_PROVINCIA_OLD]              VARCHAR (2)   NULL,
+    [AUSIP_CODICE_COMUNE_BELFIORE_OLD] VARCHAR (4)   NULL,
+    [AUSIP_MOTIVO]                     VARCHAR (200) NULL,
+    [AUSIP_DATA_MODIFICA]              DATETIME      NULL,
+    [AUSIP_DESCR_UTENTE]               VARCHAR (50)  NULL,
+    CONSTRAINT [PK_tb_ausip] PRIMARY KEY CLUSTERED ([AUSIP_CODICE_PK] ASC),
+    CONSTRAINT [UQ_ausip_ausip] UNIQUE NONCLUSTERED ([AUSIP_CODICE_PK] ASC)
+);
+

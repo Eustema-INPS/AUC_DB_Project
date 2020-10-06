@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[TI_ANCPG_COLPFGPG_CL] (
+    [ANCPG_BDSO_SEQ_SOGG_PK]     BIGINT       NULL,
+    [ANCPG_BDPS_SEQ_OGG_PK]      BIGINT       NULL,
+    [ANCPG_DATA_INIZ_PK]         DATE         NULL,
+    [ANCPG_DATA_FINE]            DATE         NULL,
+    [ANCPG_ANTCG_COD_TCOLGIUFIS] VARCHAR (3)  NULL,
+    [ANCPG_COD_UTENTE]           VARCHAR (16) NULL,
+    [ANCPG_DATA_AGGIORN]         DATE         NULL,
+    [ANCPG_COD_APPL]             VARCHAR (2)  NULL,
+    [ANCPG_DATA_SISTEMA]         DATE         NULL,
+    [ANCPG_AUC_AUSCA_PK]         INT          NULL,
+    [ANCPG_AUC_AUSCO_PK]         INT          NULL,
+    [ANCPG_CODICE_PK]            BIGINT       IDENTITY (1, 1) NOT NULL,
+    [ANCPG_DATA_MODIFICA]        DATETIME     NULL,
+    [ANCPG_DESCR_UTENTE]         VARCHAR (50) NULL
+);
+

@@ -1,0 +1,18 @@
+﻿CREATE TABLE [dbo].[TI_BDSV_SOCVER_CL] (
+    [BDSV_ID_VA]            BIGINT       NULL,
+    [BDSV_BDSO_APP_VR]      BIGINT       NULL,
+    [BDSV_BDSO_VER_VR]      BIGINT       NULL,
+    [BDSV_DATAFIN_VB]       DATE         NULL,
+    [BDSV_DATAINI_VB]       DATE         NULL,
+    [BDSV_ECTO_PER_VR]      BIGINT       NULL,
+    [BDSV_MODREC_VB]        DATE         NULL,
+    [BDSV_UTENTE_VB]        VARCHAR (40) NULL,
+    [BDSV_BDST_ERI_VR]      BIGINT       NULL,
+    [BDSV_AUC_AUSCA_APP_PK] INT          NULL,
+    [BDSV_AUC_AUSCA_VER_PK] INT          NULL,
+    [BDSV_CODICE_PK]        BIGINT       IDENTITY (1, 1) NOT NULL,
+    [BDSV_DATA_MODIFICA]    DATETIME     NULL,
+    [BDSV_DESCR_UTENTE]     VARCHAR (50) NULL,
+    [BDSV_ECTO_DESCRIZIONE] VARCHAR (60) NULL
+);
+

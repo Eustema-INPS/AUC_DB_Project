@@ -1,0 +1,15 @@
+﻿CREATE TABLE [dbo].[TI_ANFGG_FORMAGIURPG_CL] (
+    [ANFGG_BDSO_ID_VA_PK]       BIGINT       NULL,
+    [ANFGG_DATA_INIZ_PK]        DATE         NULL,
+    [ANFGG_DATA_FINE]           DATE         NULL,
+    [ANFGG_ANFGI_COD_FORMAGIUR] VARCHAR (3)  NULL,
+    [ANFGG_COD_UTENTE]          VARCHAR (16) NULL,
+    [ANFGG_DATA_AGGIORN]        DATE         NULL,
+    [ANFGG_COD_APPL]            VARCHAR (2)  NULL,
+    [ANFGG_DATA_SISTEMA]        DATE         NULL,
+    [ANFGG_AUC_AUSCA_PK]        INT          NULL,
+    [ANFGG_CODICE_PK]           BIGINT       IDENTITY (1, 1) NOT NULL,
+    [ANFGG_DATA_MODIFICA]       DATETIME     NULL,
+    [ANFGG_DESCR_UTENTE]        VARCHAR (50) NULL
+);
+

@@ -1,0 +1,243 @@
+﻿CREATE PROCEDURE [dbo].[SP_Osiride_TR12_3_Gestione_UL0000] 
+AS
+BEGIN
+
+	IF OBJECT_ID('tempdb..#group_auvis') IS NOT NULL	
+		DROP TABLE #group_auvis;
+
+	CREATE TABLE #group_auvis(
+	group_auvis_cf char(16),
+	group_auvis_data date
+	);
+	
+	INSERT INTO #group_auvis(group_auvis_cf, group_auvis_data)
+		SELECT dbo.tb_auvis_visure.auvis_CF, MAX(CONVERT(date, dbo.tb_auvis_visure.auvis_DataEstrazione, 103)) AS MaxData
+		FROM dbo.tb_auvis_visure 
+		INNER JOIN  dbo.tb_ausca_sog_contr_az ON dbo.tb_auvis_visure.auvis_CF = dbo.tb_ausca_sog_contr_az.ausca_codice_fiscale
+		WHERE dbo.tb_auvis_visure.auvis_elaborato <> 9
+		AND dbo.tb_ausca_sog_contr_az.ausca_soggetto_certificato = 'S'
+		AND (dbo.tb_ausca_sog_contr_az.ausca_cert_auten_cod_pk = 2 AND dbo.tb_ausca_sog_contr_az.ausca_cert_cod_entita_rif=1)
+		AND dbo.tb_auvis_visure.auvis_flag03 = 1
+		GROUP BY dbo.tb_auvis_visure.auvis_CF, dbo.tb_ausca_sog_contr_az.ausca_soggetto_certificato, dbo.tb_ausca_sog_contr_az.ausca_cert_auten_cod_pk, dbo.tb_ausca_sog_contr_az.ausca_cert_cod_entita_rif
+
+    TRUNCATE TABLE [TB_AUT12_OSIRIDE_TR12]
+	
+	INSERT INTO [dbo].[TB_AUT12_OSIRIDE_TR12]
+			([AUT12_R12_TIPO]
+			,[AUT12_R12_PROV_CCIAA]
+			,[AUT12_R12_NUM_IREA]
+			,[AUT12_R12_CODICE_FISCALE]
+			,[AUT12_R12_PROGRESSIVO_UL]
+			,[AUT12_R12_CODICE_TIPO_UL]
+			,[AUT12_R12_TIPO_UL]
+			,[AUT12_R12_DENOMINAZIONE_UL]
+			,[AUT12_R12_INSEGNA_UL]
+			,[AUT12_R12_DATA_APERTURA_UL]
+			,[AUT12_R12_PROVINCIA_UL]
+			,[AUT12_R12_COD_ISTAT_COMUNE_UL]
+			,[AUT12_R12_COMUNE_UL]
+			,[AUT12_R12_COD_TOPONIMO_UL]
+			,[AUT12_R12_INDIRIZZO_UL]
+			,[AUT12_R12_CIVICO_UL]
+			,[AUT12_R12_CAP_UL]
+			,[AUT12_R12_COD_STATO_ESTERO_UL]
+			,[AUT12_R12_FRAZIONE_UL]
+			,[AUT12_R12_ALTRE_INDICAZIONI_UL]
+			,[AUT12_R12_COD_STRADARIO_UL]
+			,[AUT12_R12_TELEFONO_UL]
+			,[AUT12_R12_FAX_UL]
+			,[AUT12_R12_NREA_FUORI_PROV]
+			,[AUT12_R12_COD_CAUSA_CESSAZIONE]
+			,[AUT12_R12_DATA_CESSAZIONE_UL]
+			,[AUT12_R12_DATA_DENUNCIA_CESS_UL]
+			,[AUT12_R12_ANNO_DENUNCIA_ADDETTI]
+			,[AUT12_R12_NUM_ADDETTI_FAM]
+			,[AUT12_R12_NUM_ADDETTI_SUB]
+			,[AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_01]
+			,[AUT12_R12_COD_ENTE_RILASCIANTE_01]
+			,[AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_02]
+			,[AUT12_R12_COD_ENTE_RILASCIANTE_02]
+			,[AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_03]
+			,[AUT12_R12_COD_ENTE_RILASCIANTE_03]
+			,[AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_04]
+			,[AUT12_R12_COD_ENTE_RILASCIANTE_04]
+			,[AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_05]
+			,[AUT12_R12_COD_ENTE_RILASCIANTE_05]
+			,[AUT12_R12_FLAG_OMISSIS_INI_ATT]
+			,[AUT12_R12_COD_ISTAT_2002_01]
+			,[AUT12_R12_COD_IMPORT_ATT_01]
+			,[AUT12_R12_DATA_INIZ_ATT_01]
+			,[AUT12_R12_DATA_CESS_ATT_01]
+			,[AUT12_R12_COD_ISTAT_2002_02]
+			,[AUT12_R12_COD_IMPORT_ATT_02]
+			,[AUT12_R12_DATA_INIZ_ATT_02]
+			,[AUT12_R12_DATA_CESS_ATT_02]
+			,[AUT12_R12_COD_ISTAT_2002_03]
+			,[AUT12_R12_COD_IMPORT_ATT_03]
+			,[AUT12_R12_DATA_INIZ_ATT_03]
+			,[AUT12_R12_DATA_CESS_ATT_03]
+			,[AUT12_R12_COD_ISTAT_2002_04]
+			,[AUT12_R12_COD_IMPORT_ATT_04]
+			,[AUT12_R12_DATA_INIZ_ATT_04]
+			,[AUT12_R12_DATA_CESS_ATT_04]
+			,[AUT12_R12_COD_ISTAT_2002_05]
+			,[AUT12_R12_COD_IMPORT_ATT_05]
+			,[AUT12_R12_DATA_INIZ_ATT_05]
+			,[AUT12_R12_DATA_CESS_ATT_05]			
+			,[AUT12_R12_COD_ISTAT_2002_06]
+			,[AUT12_R12_COD_IMPORT_ATT_06]
+			,[AUT12_R12_DATA_INIZ_ATT_06]
+			,[AUT12_R12_DATA_CESS_ATT_06]
+			,[AUT12_R12_COD_ISTAT_2002_07]
+			,[AUT12_R12_COD_IMPORT_ATT_07]
+			,[AUT12_R12_DATA_INIZ_ATT_07]
+			,[AUT12_R12_DATA_CESS_ATT_07]
+			,[AUT12_R12_COD_ISTAT_2002_08]
+			,[AUT12_R12_COD_IMPORT_ATT_08]
+			,[AUT12_R12_DATA_INIZ_ATT_08]
+			,[AUT12_R12_DATA_CESS_ATT_08]
+			,[AUT12_R12_COD_ISTAT_2002_09]
+			,[AUT12_R12_COD_IMPORT_ATT_09]
+			,[AUT12_R12_DATA_INIZ_ATT_09]
+			,[AUT12_R12_DATA_CESS_ATT_09]
+			,[AUT12_R12_COD_ISTAT_2002_10]
+			,[AUT12_R12_COD_IMPORT_ATT_10]
+			,[AUT12_R12_DATA_INIZ_ATT_10]
+			,[AUT12_R12_DATA_CESS_ATT_10]
+			,[AUT12_R12_FLAG_OMISSIS_ATT_ISTAT]
+			,[AUT12_R12_DESCR_ATT_UL_01]
+			,[AUT12_R12_DESCR_ATT_UL_02]
+			,[AUT12_R12_DESCR_ATT_UL_03]
+			,[AUT12_R12_DESCR_ATT_UL_04]
+			,[AUT12_R12_DESCR_ATT_UL_05]
+			,[AUT12_R12_FLAG_OMISSIS_DESCR_ATT]
+			,[AUT12_R12_SUPER_VENDITA]
+			,[AUT12_R12_SETT_MERC]
+			,[AUT12_R12_DATA_DENUNCIA_INIZ_ATT]
+			,[AUT12_R12_DESCR_ATT_UL]
+  		    ,[AUT12_R12_FLAG_OMISSIS_ATT_2007]) --raf
+		SELECT  
+		'12' As AUT12_R12_TIPO,
+		ausca_cciaa As AUT12_R12_PROV_CCIAA,
+		right('000000000'+ausca_n_rea,9) As AUT12_R12_NUM_IREA,
+		ausca_codice_fiscale As AUT12_R12_CODICE_FISCALE,
+		'0000' As AUT12_R12_PROGRESSIVO_UL,
+		'000000000000000' As AUT12_R12_CODICE_TIPO_UL,
+		'SE' As AUT12_R12_TIPO_UL,
+		SUBSTRING(ausca_denominazione,1,305) As AUT12_R12_DENOMINAZIONE_UL,
+		space(50) As AUT12_R12_INSEGNA_UL,
+		space(8)  As AUT12_R12_DATA_APERTURA_UL,
+		ausca_sigla_provincia As AUT12_R12_PROVINCIA_UL,		
+		CASE WHEN LEN([ausca_codice_comune]) = 3 THEN ausca_sigla_provincia+[ausca_codice_comune] 
+			 WHEN LEN([ausca_codice_comune_istat]) = 6 THEN ausca_sigla_provincia+ substring([ausca_codice_comune_istat],4,3) ELSE '' END AS AUT12_R12_COD_ISTAT_COMUNE_UL,  		
+		ausca_descr_comune As AUT12_R12_COMUNE_UL,						
+		ausca_codice_toponimo As AUT12_R12_COD_TOPONIMO_UL,				
+		SUBSTRING([ausca_indirizzo],1,30) As AUT12_R12_INDIRIZZO_UL,						
+		SUBSTRING([ausca_civico],1,8) As AUT12_R12_CIVICO_UL,						
+		[ausca_cap] As AUT12_R12_CAP_UL,
+		CASE WHEN LEN([ausca_codice_stato_estero]) = 3 THEN [ausca_codice_stato_estero] ELSE ''	END AS AUT12_R12_COD_STATO_ESTERO_UL, 
+		SUBSTRING([ausca_frazione],1,25) as AUT12_R12_FRAZIONE_UL,
+		space(30) As AUT12_R12_ALTRE_INDICAZIONI_UL,
+		space(5) As AUT12_R12_COD_STRADARIO_UL,
+		space(16) As AUT12_R12_TELEFONO_UL,
+		space(16) As AUT12_R12_FAX_UL,
+		'000000000' As AUT12_R12_NREA_FUORI_PROV,
+		space(2) As AUT12_R12_COD_CAUSA_CESSAZIONE,
+		space(8) As AUT12_R12_DATA_CESSAZIONE_UL,
+		space(8) As AUT12_R12_DATA_DENUNCIA_CESS_UL,
+		'0000' As AUT12_R12_ANNO_DENUNCIA_ADDETTI,
+		'0000' As AUT12_R12_NUM_ADDETTI_FAM,
+		'000000000' As AUT12_R12_NUM_ADDETTI_SUB,
+		space(8)  As AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_01,
+		space(2)  As AUT12_R12_COD_ENTE_RILASCIANTE_01,
+		space(8)  As AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_02,
+		space(2)  As AUT12_R12_COD_ENTE_RILASCIANTE_02,
+		space(8)  As AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_03,
+		space(2)  As AUT12_R12_COD_ENTE_RILASCIANTE_03,
+		space(8)  As AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_04,
+		space(2)  As AUT12_R12_COD_ENTE_RILASCIANTE_04,
+		space(8)  As AUT12_R12_DATA_DENUNCIA_INI_ATT_UL_05,
+		space(2)  As AUT12_R12_COD_ENTE_RILASCIANTE_05,
+		space(1)  As AUT12_R12_FLAG_OMISSIS_INI_ATT,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_01 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_01 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_01	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_01	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_02 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_02 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_02	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_02	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_03 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_03 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_03	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_03	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_04 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_04 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_04	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_04	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_05 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_05 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_05	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_05	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_06 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_06 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_06	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_06	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_07 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_07 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_07	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_07	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_08 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_08 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_08	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_08	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_09 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_09 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_09	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_09	 ,
+		space(6)  As AUT12_R12_COD_ISTAT_2002_10 ,
+		space(1)  As AUT12_R12_COD_IMPORT_ATT_10 ,
+		space(8)  As AUT12_R12_DATA_INIZ_ATT_10	 ,
+		space(8)  As AUT12_R12_DATA_CESS_ATT_10	 ,
+		space(1)  As AUT12_R12_FLAG_OMISSIS_ATT_ISTAT ,
+		space(80) As AUT12_R12_DESCR_ATT_UL_01,
+		space(80) As AUT12_R12_DESCR_ATT_UL_02,
+		space(80) As AUT12_R12_DESCR_ATT_UL_03,
+		space(80) As AUT12_R12_DESCR_ATT_UL_04,
+		space(80) As AUT12_R12_DESCR_ATT_UL_05,		
+		'0'  As AUT12_R12_FLAG_OMISSIS_DESCR_ATT, --raf
+		'0000'    As AUT12_R12_SUPER_VENDITA,
+		space(1)  As AUT12_R12_SETT_MERC,
+		space(8)  As AUT12_R12_DATA_DENUNCIA_INIZ_ATT,
+		--
+		CASE Isnull(ausca_attivita_secondaria_esercitata,'--') WHEN '--' 
+		THEN -- AttSecond null			
+			CASE Isnull(ausca_attivita_esercitata,'##') WHEN '##' 
+			THEN
+				--'Null tutte e due'
+				space(500)
+            ELSE
+				-- 2 - AttSecond NON valorizzata - AttPrinc Valorizzata			
+				LEFT(REPLACE(REPLACE(ausca_attivita_esercitata, CHAR(13), ''), CHAR(10), '') + space(500),500)
+			END 				
+		ELSE 
+			-- 1 - AttSecond valorizzata			
+			LEFT(REPLACE(REPLACE(ausca_attivita_secondaria_esercitata, CHAR(13), ''), CHAR(10), '') + space(500),500)
+
+		END AS AUT12_R12_DESCR_ATT_UL,
+		'0'       As AUT12_R12_FLAG_OMISSIS_ATT_2007 --raf
+		--
+	FROM #group_auvis WITH (READUNCOMMITTED) INNER JOIN tb_ausca_sog_contr_az WITH (READUNCOMMITTED) ON 
+		 ausca_codice_fiscale = group_auvis_cf		
+		--Print '*** Elaborazione Terminata !! ***'
+			
+	UPDATE [TB_AUT12_OSIRIDE_TR12] SET AUT12_R12_FLAG_OMISSIS_DESCR_ATT = ( CASE WHEN LEN(ltrim(rtrim(AUT12_R12_DESCR_ATT_UL))) > 400 THEN 1 ELSE 0 END )
+	
+	UPDATE [TB_AUT12_OSIRIDE_TR12] 
+	SET [AUT12_R12_DESCR_ATT_UL_01] = SUBSTRING ( LEFT(AUT12_R12_DESCR_ATT_UL + space(400),400 ) ,  1 , 80 ) ,
+		[AUT12_R12_DESCR_ATT_UL_02] = SUBSTRING ( LEFT(AUT12_R12_DESCR_ATT_UL + space(400),400 ) , 81 , 80 ) ,
+		[AUT12_R12_DESCR_ATT_UL_03] = SUBSTRING ( LEFT(AUT12_R12_DESCR_ATT_UL + space(400),400 ) ,161 , 80 ) ,
+		[AUT12_R12_DESCR_ATT_UL_04] = SUBSTRING ( LEFT(AUT12_R12_DESCR_ATT_UL + space(400),400 ) ,241 , 80 ) ,
+		[AUT12_R12_DESCR_ATT_UL_05] = SUBSTRING ( LEFT(AUT12_R12_DESCR_ATT_UL + space(400),400 ) ,321 , 80 )  ;
+			
+END

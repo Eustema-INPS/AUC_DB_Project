@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[TI_ANPGO_PGOPER_CL] (
+    [ANPGO_ANOPG_SEQ_OPERAZPG_PK] BIGINT       NULL,
+    [ANPGO_BDSO_ID_VA_PK]         BIGINT       NULL,
+    [ANPGO_FLAG_TIPOPG]           VARCHAR (1)  NULL,
+    [ANPGO_COD_UTENTE]            VARCHAR (16) NULL,
+    [ANPGO_DATA_AGGIORN]          DATE         NULL,
+    [ANPGO_COD_APPL]              VARCHAR (2)  NULL,
+    [ANPGO_DATA_SISTEMA]          DATE         NULL,
+    [ANPGO_AUC_AUSCA_PK]          INT          NULL,
+    [ANPGO_CODICE_PK]             BIGINT       IDENTITY (1, 1) NOT NULL,
+    [ANPGO_DATA_MODIFICA]         DATETIME     NULL,
+    [ANPGO_DESCR_UTENTE]          VARCHAR (50) NULL
+);
+

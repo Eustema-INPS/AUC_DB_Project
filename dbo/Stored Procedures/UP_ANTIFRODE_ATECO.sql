@@ -1,0 +1,23 @@
+﻿/****** Object:  StoredProcedure [dbo].[UP_ANTIFRODE_ATECO]    Script Date: 09/09/2020 17:42:10 ******/
+
+
+-- =============================================
+-- Author:		Salari
+-- Create date: 
+-- =============================================
+CREATE PROCEDURE [dbo].[UP_ANTIFRODE_ATECO] 
+	@codicefiscale varchar(16)
+AS
+BEGIN
+	SET NOCOUNT ON;
+   
+	SELECT AUATE_COD_ATECO_COMPLESSIVO 
+		FROM TB_AUATE_COD_ATECO_CT
+	WHERE AUATE_CODICE_PK = (SELECT AUSCA_AUATE_2007_CODICE_PK FROM TB_AUSCA_SOG_CONTR_AZ WHERE AUSCA_CODICE_FISCALE = @CODICEFISCALE)
+		UNION ALL
+	SELECT AUATA_COD_ATT_OUTPUT
+	FROM TB_AUATA_ATECO_AUSCA
+	WHERE AUATA_AUSCA_CODICE_FISCALE =@CODICEFISCALE
+		AND AUATA_CLASSIFICAZIONE_ATECO ='2007'
+        
+END
